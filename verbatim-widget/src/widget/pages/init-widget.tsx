@@ -1,5 +1,5 @@
-import { AutoLayout } from '@/lib/index';
-import { Button } from '@/lib/ui/components/button';
+import { AutoLayout } from '../lib';
+import { Button } from '../lib/ui/components/button';
 
 export const WidgetInit = () => {
   return (

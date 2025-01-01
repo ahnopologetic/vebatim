@@ -1,4 +1,4 @@
-import { AutoLayout, Text } from "@/lib/index";
+import { AutoLayout, Text } from "../../../lib";
 
 interface ButtonProps {
   text: string;

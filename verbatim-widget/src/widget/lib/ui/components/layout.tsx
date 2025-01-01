@@ -1,6 +1,6 @@
 
-import { borderRadius, ColorStyles } from '@/shared/styles/index';
-import { AutoLayout } from '@/lib/index';
+import { borderRadius, ColorStyles } from '../../../shared/styles';
+import { AutoLayout } from '../../../lib';
 
 interface LayoutProps extends AutoLayoutProps {}
 

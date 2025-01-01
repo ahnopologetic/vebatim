@@ -1,4 +1,4 @@
-import { Colors } from '@/shared/styles/colors';
+import { Colors } from './colors';
 
 type Sizing = 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large';
 
