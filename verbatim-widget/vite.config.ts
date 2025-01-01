@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
 import { viteSingleFile } from "vite-plugin-singlefile";
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,4 +21,11 @@ export default defineConfig({
       },
     },
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './widget-src'),
+      '@/shared': path.resolve(__dirname, './widget-src/shared'),
+      '@/widget-components': path.resolve(__dirname, './widget-src/lib/ui/components')
+    }
+  }
 });

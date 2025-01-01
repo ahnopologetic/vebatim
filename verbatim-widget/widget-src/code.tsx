@@ -1,35 +1,13 @@
-const { widget } = figma;
-const { AutoLayout, Ellipse, Frame, Image, Rectangle, SVG, Text } = widget;
+import useWidgetInit from "./hooks/use-widget-init";
+import { Layout } from "./lib/ui/components/layout";
+import { WidgetInit } from "./pages/init-widget";
 
-function Widget() {
+function MainWidget() {
+  const { widgetType } = useWidgetInit();
   return (
-    <AutoLayout
-      direction="horizontal"
-      horizontalAlignItems="center"
-      verticalAlignItems="center"
-      height="hug-contents"
-      padding={8}
-      fill="#FFFFFF"
-      cornerRadius={8}
-      spacing={12}
-      onClick={async () => {
-        await new Promise((resolve) => {
-          figma.showUI(__html__);
-          figma.ui.on("message", (msg) => {
-            if (msg === "hello") {
-              figma.notify("Hello Widgets");
-            }
-            if (msg === "close") {
-              figma.closePlugin();
-            }
-          });
-        });
-      }}
-    >
-      <Text fontSize={32} horizontalAlignText="center">
-        Click Me
-      </Text>
-    </AutoLayout>
+    <Layout>
+      {widgetType === 'init' && <WidgetInit />}
+    </Layout>
   );
 }
-widget.register(Widget);
+figma.widget.register(MainWidget);
