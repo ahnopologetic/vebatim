@@ -1,8 +1,6 @@
 import ReactDOM from "react-dom";
 import { MemoryRouter as Router } from 'react-router-dom';
 
-import './styles/app.css';
-
 import { Layout } from '../components/ui/layout';
 
 import { MyRoutes } from './routes/routes';
