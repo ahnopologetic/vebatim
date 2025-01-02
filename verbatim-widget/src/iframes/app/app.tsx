@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactDOM from "react-dom";
 import { MemoryRouter as Router } from 'react-router-dom';
 
@@ -10,10 +11,7 @@ const Main = () => {
   return (
     <Router
       initialEntries={[
-        ROUTES_MAP[ROUTES.IMPORT],
         ROUTES_MAP[ROUTES.CREATE],
-        ROUTES_MAP[ROUTES.SETTINGS],
-        ROUTES_MAP[ROUTES.RESYNC],
       ]}
       initialIndex={0}
     >

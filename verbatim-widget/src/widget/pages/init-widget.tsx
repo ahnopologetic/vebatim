@@ -1,4 +1,5 @@
 import { AutoLayout } from '../lib';
+import { openCreateEventIframe } from '../lib/open-iframe';
 import { Button } from '../lib/ui/components/button';
 
 export const WidgetInit = () => {
@@ -22,7 +23,7 @@ export const WidgetInit = () => {
           size="large"
           appearance="secondary"
           width={'fill-parent'}
-          onClick={() => {}}
+          onClick={openCreateEventIframe}
           text="Create Event"
         />
         <Button

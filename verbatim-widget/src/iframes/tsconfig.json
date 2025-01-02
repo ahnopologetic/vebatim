@@ -16,11 +16,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"],
-      "@/external/*": ["../global-shared/*"],
-    },
+    "baseUrl": ".",
     "types": ["@figma/plugin-typings", "node"]
   }
 }
