@@ -8,22 +8,19 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <AutoLayout
-    //   overflow={modal.openedModal ? 'visible' : 'hidden'}
       overflow={'hidden'}
-      name="Layout"
+      name="Widget Layout"
       verticalAlignItems={'center'}
       horizontalAlignItems={'center'}
       direction="vertical"
       cornerRadius={borderRadius.large}
-      fill={ColorStyles.surface.background}
-      stroke={ColorStyles.border}
-      width={440}
+      width={`hug-contents`}
     >
       <AutoLayout
         verticalAlignItems={'center'}
         horizontalAlignItems={'center'}
         direction="vertical"
-        width={'fill-parent'}
+        width={'hug-contents'}
       >
         {children}
       </AutoLayout>

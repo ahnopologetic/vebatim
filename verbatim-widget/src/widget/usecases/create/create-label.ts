@@ -1,20 +1,20 @@
-import { useWidgetNodeId } from "../../lib";
 import { UserEvent } from "../../shared/types";
 
 export const createLabel = (userEvent: UserEvent, widgetNodeId: string) => {
-    figma.notify('Create Label');
-
     // clone a widget with type
     const widgetNode = figma.getNodeById(widgetNodeId) as WidgetNode;
+
+    if (!widgetNode) {
+        figma.notify('Widget not found');
+        return;
+    }
 
     const newWidgetNode = widgetNode.cloneWidget({
         widgetType: 'event'
     });
 
     newWidgetNode.name = `Verbatim Event: ${userEvent.name}`;
-    newWidgetNode.x = 100;
-    newWidgetNode.y = 100;
+    newWidgetNode.x = widgetNode.x + widgetNode.width + 40;
 
-    // TODO: make sure below needed.
-    // figma.currentPage.appendChild(newWidgetNode);
+    return newWidgetNode
 };

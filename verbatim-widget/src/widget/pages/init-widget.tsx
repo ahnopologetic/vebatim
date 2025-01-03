@@ -1,6 +1,7 @@
 import { AutoLayout } from '../lib';
 import { openCreateEventIframe } from '../lib/open-iframe';
 import { Button } from '../lib/ui/components/button';
+import { ColorStyles } from '../shared/styles';
 
 export const WidgetInit = () => {
   return (
@@ -10,7 +11,9 @@ export const WidgetInit = () => {
       horizontalAlignItems={'center'}
       direction="vertical"
       spacing={16}
-      width={'fill-parent'}
+      width={440}
+      fill={ColorStyles.surface.background}
+      stroke={ColorStyles.border}
     >
       <AutoLayout
         verticalAlignItems={'center'}

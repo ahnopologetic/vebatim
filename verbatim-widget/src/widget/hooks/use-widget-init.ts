@@ -13,6 +13,8 @@ const useWidgetInit = () => {
             switch (msg.type) {
                 case MESSAGE_TYPES.CREATE_EVENT:
                     createLabel(msg.data, widgetNodeId);
+                    figma.notify('Event created');
+                    figma.closePlugin();
                     break;
                 case MESSAGE_TYPES.UPDATE_EVENT:
                     figma.notify('Update Event');
