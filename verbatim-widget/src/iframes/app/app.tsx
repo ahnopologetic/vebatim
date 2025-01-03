@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line
 import ReactDOM from "react-dom";
 import { MemoryRouter as Router } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import { Layout } from '../components/ui/layout';
 
 import { MyRoutes } from './routes/routes';
 import { ROUTES, ROUTES_MAP } from './routes/routes-map';
+import './style.css';
 
 const Main = () => {
   return (
