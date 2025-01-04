@@ -5,13 +5,13 @@ import { EventWidget } from "./pages/event-widget";
 import { WidgetInit } from "./pages/init-widget";
 
 function MainWidget() {
-  const { widgetType, eventInfo, eventProperties, widgetNodeId } = useWidgetInit();
+  const { widgetType, widgetNodeId } = useWidgetInit();
   useSetPropertyMenu(widgetType, widgetNodeId);
 
   return (
     <Layout>
       {widgetType === 'init' && <WidgetInit />}
-      {widgetType === 'event' && <EventWidget eventInfo={eventInfo} eventProperties={eventProperties} widgetNodeId={widgetNodeId} />}
+      {widgetType === 'event' && <EventWidget widgetNodeId={widgetNodeId} />}
     </Layout>
   );
 }

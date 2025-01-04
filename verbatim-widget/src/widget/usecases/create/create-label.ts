@@ -10,7 +10,13 @@ export const createLabel = (userEvent: UserEvent, widgetNodeId: string) => {
     }
 
     const newWidgetNode = widgetNode.cloneWidget({
-        widgetType: 'event'
+        widgetType: 'event',
+        eventInfo: {
+            id: userEvent.id,
+            name: userEvent.name,
+            description: userEvent.description,
+        },
+        eventProperties: userEvent.properties,
     });
 
     newWidgetNode.name = `Verbatim Event: ${userEvent.name}`;
