@@ -34,3 +34,11 @@ export const openCreateEventIframe = () => {
         options: { visible: true },
     });
 };
+
+export const openListEventsIframe = () => {
+    openPluginUI({
+        routeName: 'list-events',
+        props: {},
+        options: { visible: true },
+    });
+};

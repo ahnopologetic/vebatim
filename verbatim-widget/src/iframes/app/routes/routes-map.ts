@@ -1,13 +1,11 @@
 export enum ROUTES {
     IMPORT = 'import',
     CREATE = 'create-event',
-    SETTINGS = 'settings',
-    RESYNC = 'resync',
+    LIST = 'list-events',
 }
 
 export const ROUTES_MAP: { [routeName: string]: string } = {
     [ROUTES.CREATE]: '/create-event',
     [ROUTES.IMPORT]: '/import',
-    [ROUTES.SETTINGS]: '/settings',
-    [ROUTES.RESYNC]: '/resync',
+    [ROUTES.LIST]: '/list-events',
 };

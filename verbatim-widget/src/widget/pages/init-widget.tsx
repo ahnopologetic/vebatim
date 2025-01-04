@@ -1,5 +1,5 @@
 import { AutoLayout } from '../lib';
-import { openCreateEventIframe } from '../lib/open-iframe';
+import { openCreateEventIframe, openListEventsIframe } from '../lib/open-iframe';
 import { Button } from '../lib/ui/components/button';
 import { ColorStyles } from '../shared/styles';
 
@@ -33,7 +33,7 @@ export const WidgetInit = () => {
           size="large"
           appearance="secondary"
           width={'fill-parent'}
-          onClick={() => {}}
+          onClick={openListEventsIframe}
           text="List Events"
         />
         <Button
