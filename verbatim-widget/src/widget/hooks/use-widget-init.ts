@@ -1,17 +1,25 @@
-import { useEffect, usePropertyMenu, useSyncedState, useWidgetNodeId } from "../lib/index";
+import { useEffect, useSyncedState, useWidgetNodeId } from "../lib/index";
 import { MESSAGE_TYPES } from "../shared/message-types";
-import { EventProperty } from "../shared/types";
-import { EventInfo } from "../shared/types";
 import { createLabel } from "../usecases/create/create-label";
 
 export type WidgetType = 'init' | 'create' | 'event'
 
 const useWidgetInit = () => {
     const [widgetType] = useSyncedState<WidgetType>('widgetType', 'init');
-
+    const [mainWidgetId, setMainWidgetId] = useSyncedState<string | undefined>('mainWidgetId', undefined);
     const widgetNodeId = useWidgetNodeId();
 
+
     useEffect(() => {
+        if (widgetType === 'init') {
+            figma.clientStorage.setAsync('mainWidgetId', widgetNodeId);
+            setMainWidgetId(widgetNodeId);
+        }
+
+        figma.clientStorage.getAsync('mainWidgetId').then((mainWidgetId) => {
+            setMainWidgetId(mainWidgetId);
+        });
+
         figma.ui.onmessage = async (msg: { data: any, type: MESSAGE_TYPES }) => {
             switch (msg.type) {
                 case MESSAGE_TYPES.CREATE_EVENT:
@@ -45,7 +53,7 @@ const useWidgetInit = () => {
         };
     });
 
-    return { widgetType, widgetNodeId };
+    return { widgetType, widgetNodeId, mainWidgetId };
 };
 
 
