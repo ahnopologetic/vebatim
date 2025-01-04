@@ -1,4 +1,4 @@
-import { useEffect, useSyncedState, useWidgetNodeId } from "../lib/index";
+import { useEffect, usePropertyMenu, useSyncedState, useWidgetNodeId } from "../lib/index";
 import { MESSAGE_TYPES } from "../shared/message-types";
 import { createLabel } from "../usecases/create/create-label";
 
