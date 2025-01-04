@@ -1,10 +1,11 @@
 import { usePropertyMenu } from "../lib";
 
-export const useSetPropertyMenu = (widgetType: string, widgetNodeId: string) => {
+export const useSetPropertyMenu = (widgetType: string, mainWidgetId: string) => {
     const focusOnMainWidget = () => {
-        const mainWidget = figma.getNodeById(widgetNodeId) as WidgetNode; // TODO: replace this with main widget id
+        const mainWidget = figma.getNodeById(mainWidgetId) as WidgetNode;
         if (mainWidget) {
             figma.viewport.scrollAndZoomIntoView([mainWidget]);
+            figma.currentPage.selection = [mainWidget];
         }
     }
 

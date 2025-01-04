@@ -5,8 +5,8 @@ import { EventWidget } from "./pages/event-widget";
 import { WidgetInit } from "./pages/init-widget";
 
 function MainWidget() {
-  const { widgetType, widgetNodeId } = useWidgetInit();
-  useSetPropertyMenu(widgetType, widgetNodeId);
+  const { widgetType, widgetNodeId, mainWidgetId } = useWidgetInit();
+  useSetPropertyMenu(widgetType, mainWidgetId);
 
   return (
     <Layout>
