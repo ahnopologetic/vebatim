@@ -7,12 +7,19 @@ const HOME_SVG_SRC = `
 </svg>
 `
 
-export const useSetPropertyMenu = (widgetType: string, mainWidgetId: string) => {
+export const useSetPropertyMenu = (widgetType: string, mainWidgetId: string, widgetNodeId: string) => {
     const focusOnMainWidget = () => {
         const mainWidget = figma.getNodeById(mainWidgetId) as WidgetNode;
         if (mainWidget) {
             figma.viewport.scrollAndZoomIntoView([mainWidget]);
             figma.currentPage.selection = [mainWidget];
+        }
+    }
+    
+    const deleteWidget = () => {
+        const widgetNode = figma.getNodeById(widgetNodeId) as WidgetNode;
+        if (widgetNode) {
+            widgetNode.remove();
         }
     }
 
@@ -49,7 +56,7 @@ export const useSetPropertyMenu = (widgetType: string, mainWidgetId: string) => 
                         focusOnMainWidget();
                         break;
                     case 'delete':
-                        // TODO: delete widget
+                        deleteWidget();
                         break;
                 }
             }
