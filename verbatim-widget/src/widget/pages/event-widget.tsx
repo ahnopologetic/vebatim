@@ -1,20 +1,40 @@
 import { AutoLayout, useSyncedState } from "../lib";
 import { EventCursor } from "../lib/ui/components/event-cursor";
+import { EventDetails } from "../lib/ui/components/event-details";
+import { EventInfo, EventProperty } from "../shared/types";
 
-export const EventWidget = () => {
+type EventWidgetProps = {
+    widgetNodeId: string;
+    eventInfo: EventInfo;
+    eventProperties: EventProperty[];
+}
+
+export const EventWidget = ({ eventInfo, eventProperties }: EventWidgetProps) => {
     const [toggled, setToggled] = useSyncedState('toggled', false);
+    const handleClick = () => {
+        setToggled(!toggled);
+        figma.viewport.scrollAndZoomIntoView([]);
+    }
+
     return (
         <AutoLayout
-            direction="vertical"
+            direction="horizontal"
             name="Event Widget"
-            width={`hug-contents`}
-            verticalAlignItems="center"
-            horizontalAlignItems="center"
-            rotation={45}
+            width="hug-contents"
+            height="hug-contents"
+            spacing={8}
         >
             <EventCursor
-                onClick={() => { setToggled(!toggled); console.log('toggled', toggled) }}
+                onClick={handleClick}
+                rotation={45}
             />
+
+            {toggled && (
+                <EventDetails
+                    eventInfo={eventInfo}
+                    eventProperties={eventProperties}
+                />
+            )}
         </AutoLayout>
     );
 };

@@ -14,11 +14,9 @@ const eventCursorSrc = `
 
 `
 
-type EventCursorProps = {
-    onClick: () => void
-}
-export const EventCursor = ({ onClick }: EventCursorProps) => {
+type EventCursorProps = Omit<SVGProps, 'src'>
+export const EventCursor = ({ onClick, ...rest }: EventCursorProps) => {
     return (
-        <SVG src={eventCursorSrc} onClick={onClick} width={64} height={64} />
+        <SVG src={eventCursorSrc} onClick={onClick} width={64} height={64} {...rest} />
     )
 }

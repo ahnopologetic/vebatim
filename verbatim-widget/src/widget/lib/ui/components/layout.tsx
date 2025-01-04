@@ -1,14 +1,13 @@
 
-import { borderRadius, ColorStyles } from '../../../shared/styles';
 import { AutoLayout } from '../../../lib';
+import { borderRadius } from '../../../shared/styles';
 
-interface LayoutProps extends AutoLayoutProps {}
+type LayoutProps = AutoLayoutProps;
 
 export const Layout = ({ children }: LayoutProps) => {
-
   return (
     <AutoLayout
-      overflow={'hidden'}
+      overflow="visible"
       name="Widget Layout"
       verticalAlignItems={'center'}
       horizontalAlignItems={'center'}
