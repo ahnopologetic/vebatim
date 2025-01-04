@@ -32,6 +32,16 @@ const useWidgetInit = () => {
                 case MESSAGE_TYPES.LIST_EVENTS:
                     figma.notify('List Events');
                     break;
+                case MESSAGE_TYPES.FOCUS_NODE:
+                    const node = figma.getNodeById(msg.data.nodeId);
+                    if (node) {
+                        figma.currentPage.selection = [node as SceneNode];
+                        figma.viewport.scrollAndZoomIntoView([node]);
+                    }
+                    figma.closePlugin();
+                    break;
+                case MESSAGE_TYPES.ROUTE_UPDATE:
+                    break;
                 default:
                     figma.notify('Unknown Message');
                     break;

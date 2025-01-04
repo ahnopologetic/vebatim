@@ -4,4 +4,5 @@ export enum MESSAGE_TYPES {
     UPDATE_EVENT = 'update-event',
     DELETE_EVENT = 'delete-event',
     LIST_EVENTS = 'list-events',
+    FOCUS_NODE = 'focus-node',
   }

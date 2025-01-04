@@ -7,18 +7,22 @@ import { Layout } from '../components/ui/layout';
 import { MyRoutes } from './routes/routes';
 import { ROUTES, ROUTES_MAP } from './routes/routes-map';
 import './style.css';
+import { AppContextProvider } from '../lib/contexts/app';
 
 const Main = () => {
   return (
     <Router
       initialEntries={[
         ROUTES_MAP[ROUTES.CREATE],
+        ROUTES_MAP[ROUTES.LIST],
       ]}
       initialIndex={0}
     >
-      <Layout>
-        <MyRoutes />
-      </Layout>
+      <AppContextProvider>
+        <Layout>
+          <MyRoutes />
+        </Layout>
+      </AppContextProvider>
     </Router>
   );
 };
