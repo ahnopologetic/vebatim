@@ -1,6 +1,7 @@
 import { useEffect, useSyncedState, useWidgetNodeId } from "../lib/index";
 import { MESSAGE_TYPES } from "../shared/message-types";
 import { createLabel } from "../usecases/create/create-label";
+import { updateLabel } from "../usecases/update/update-label";
 
 export type WidgetType = 'init' | 'create' | 'event'
 
@@ -28,7 +29,9 @@ const useWidgetInit = () => {
                     figma.closePlugin();
                     break;
                 case MESSAGE_TYPES.UPDATE_EVENT:
-                    figma.notify('Update Event');
+                    updateLabel(msg.data, widgetNodeId);
+                    figma.notify('Event updated');
+                    figma.closePlugin();
                     break;
                 case MESSAGE_TYPES.DELETE_EVENT:
                     figma.notify('Delete Event');

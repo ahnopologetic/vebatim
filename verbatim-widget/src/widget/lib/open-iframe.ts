@@ -1,4 +1,5 @@
 import { waitForTask } from '../../widget/lib';
+import { EventInfo, EventProperty } from '../shared/types';
 
 export const openPluginUI = (input: {
     routeName: string;
@@ -49,6 +50,14 @@ export const openListEventsIframe = () => {
     openPluginUI({
         routeName: 'list-events',
         props: { eventMap },
+        options: { visible: true },
+    });
+};
+
+export const openEditEventIframe = (eventInfo: EventInfo, eventProperties: EventProperty[]) => {
+    openPluginUI({
+        routeName: 'edit-event',
+        props: { eventInfo, eventProperties },
         options: { visible: true },
     });
 };

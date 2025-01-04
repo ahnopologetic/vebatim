@@ -1,31 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Layout } from '../components/ui/layout';
 import { Colors } from '../../widget/shared/styles/colors';
 import { MESSAGE_TYPES } from '../../widget/shared/message-types';
+import { EventInfo, EventProperty } from '../../widget/shared/types';
+import { useAppContext } from '../lib/contexts/app';
 
-export interface EventProperty {
-    name: string;
-    type: 'string' | 'number' | 'boolean';
-    description: string;
-}
-
-export interface EventForm {
+interface EventForm {
     name: string;
     description: string;
     properties: EventProperty[];
 }
 
-export const CreateEvent = () => {
+export const EditEvent = () => {
+    const { propsFromWidget } = useAppContext();
+    const [eventInfo, setEventInfo] = useState<EventInfo>(propsFromWidget.eventInfo);
+    const [eventProperties, setEventProperties] = useState<EventProperty[]>(propsFromWidget.eventProperties);
     const [form, setForm] = useState<EventForm>({
-        name: '',
-        description: '',
-        properties: []
+        name: eventInfo.name,
+        description: eventInfo.description,
+        properties: eventProperties
     });
     const [error, setError] = useState<string>('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!form.name.trim()) {
             setError('Event name is required');
             return;
@@ -37,10 +36,14 @@ export const CreateEvent = () => {
         }
 
         // Send message to widget
-        parent.postMessage({ 
+        parent.postMessage({
             pluginMessage: {
-                type: MESSAGE_TYPES.CREATE_EVENT,
-                data: form
+                type: MESSAGE_TYPES.UPDATE_EVENT,
+                data: {
+                    oldName: eventInfo.name,
+                    ...form,
+                    nodeId: propsFromWidget.nodeId
+                }
             }
         }, '*');
     };
@@ -55,7 +58,7 @@ export const CreateEvent = () => {
     const updateProperty = (index: number, field: keyof EventProperty, value: string) => {
         setForm(prev => ({
             ...prev,
-            properties: prev.properties.map((prop, i) => 
+            properties: prev.properties.map((prop, i) =>
                 i === index ? { ...prop, [field]: value } : prop
             )
         }));
@@ -71,15 +74,15 @@ export const CreateEvent = () => {
     return (
         <Layout>
             <div className="p-6 max-w-2xl mx-auto w-full">
-                <h1 className="text-2xl font-semibold mb-6">Create Event</h1>
-                
+                <h1 className="text-2xl font-semibold mb-6">Edit Event</h1>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                     {error && (
                         <div className="p-4 bg-red-50 border border-red-200 rounded-md text-red-600 mb-4">
                             {error}
                         </div>
                     )}
-                    
+
                     <div className="space-y-4">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -121,7 +124,7 @@ export const CreateEvent = () => {
                                     + Add Property
                                 </button>
                             </div>
-                            
+
                             <div className="space-y-3">
                                 {form.properties.map((property, index) => (
                                     <div key={index} className="flex gap-3 items-start p-3 border border-gray-200 rounded-md">
@@ -173,7 +176,7 @@ export const CreateEvent = () => {
                             style={{ backgroundColor: Colors.blue[500] }}
                             className="px-4 py-2 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
-                            Create Event
+                            Save Changes
                         </button>
                     </div>
                 </form>
