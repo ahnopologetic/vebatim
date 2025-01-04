@@ -36,9 +36,19 @@ export const openCreateEventIframe = () => {
 };
 
 export const openListEventsIframe = () => {
+    const widgetNodes: WidgetNode[] = figma.currentPage.findAll(node => {
+        return node.type === "WIDGET"
+    }) as WidgetNode[];
+
+    const eventMap = widgetNodes.reduce((acc, node) => {
+        const name = node.name.split('Verbatim Event: ')[1];
+        if (!name) return acc;
+        acc[name] = node.id;
+        return acc;
+    }, {});
     openPluginUI({
         routeName: 'list-events',
-        props: {},
+        props: { eventMap },
         options: { visible: true },
     });
 };

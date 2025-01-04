@@ -1,9 +1,30 @@
-import { useState } from 'react';
-import { UserEvent } from '../../widget/shared/types';
+import { useEffect, useState } from 'react';
 import { Layout } from '../components/ui/layout';
+import { useAppContext } from '../lib/contexts/app';
 
 export const ListEvents = () => {
-    const [events, setEvents] = useState<UserEvent[]>([]);
+    const { propsFromWidget } = useAppContext();
+    const [events, setEvents] = useState<{ [name: string]: string }>({});
+
+    useEffect(() => {
+        if (propsFromWidget?.eventMap) {
+            setEvents(propsFromWidget.eventMap);
+        }
+    }, [propsFromWidget]);
+
+    const handleFocusNode = (nodeId: string) => {
+        parent.postMessage(
+            {
+                pluginMessage: {
+                    type: 'focus-node',
+                    data: {
+                        nodeId
+                    }
+                }
+            },
+            '*'
+        );
+    };
 
     return (
         <Layout>
@@ -11,36 +32,26 @@ export const ListEvents = () => {
                 <h1 className="text-2xl font-semibold mb-6">Event List</h1>
 
                 <div className="space-y-4">
-                    {events.length === 0 ? (
+                    {Object.keys(events).length === 0 ? (
                         <div className="text-center py-8 text-gray-500">
                             No events created yet
                         </div>
                     ) : (
-                        events.map((event) => (
+                        Object.keys(events).map((event) => (
                             <div
-                                key={event.id}
-                                className="p-4 border border-gray-200 rounded-lg hover:border-blue-500 cursor-pointer"
+                                key={event}
+                                className="p-4 border border-gray-200 rounded-lg hover:border-blue-500"
                             >
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="font-medium text-gray-900">{event.name}</h3>
+                                    <h3 className="font-medium text-gray-900">{event}</h3>
+                                    <button
+                                        onClick={() => handleFocusNode(events[event])}
+                                        className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                                    >
+                                        Focus
+                                    </button>
                                 </div>
-                                <p className="text-sm text-gray-600 mb-3">{event.description}</p>
-                                {event.properties.length > 0 && (
-                                    <div className="space-y-2">
-                                        <h4 className="text-sm font-medium text-gray-700">Properties:</h4>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            {event.properties.map((prop, index) => (
-                                                <div
-                                                    key={index}
-                                                    className="text-xs px-2 py-1 bg-gray-50 rounded"
-                                                >
-                                                    <span className="font-medium">{prop.name}</span>
-                                                    <span className="text-gray-500 ml-1">({prop.type})</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
+                                <p className="text-sm text-gray-600 mb-3">{events[event]}</p>
                             </div>
                         ))
                     )}
