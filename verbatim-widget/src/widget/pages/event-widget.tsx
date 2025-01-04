@@ -5,12 +5,13 @@ import { EventInfo, EventProperty } from "../shared/types";
 
 type EventWidgetProps = {
     widgetNodeId: string;
-    eventInfo: EventInfo;
-    eventProperties: EventProperty[];
 }
 
-export const EventWidget = ({ eventInfo, eventProperties }: EventWidgetProps) => {
+export const EventWidget = ({ }: EventWidgetProps) => {
     const [toggled, setToggled] = useSyncedState('toggled', false);
+    const [eventInfo] = useSyncedState<EventInfo | undefined>('eventInfo', undefined);
+    const [eventProperties] = useSyncedState<EventProperty[] | undefined>('eventProperties', undefined);
+
     const handleClick = () => {
         setToggled(!toggled);
         figma.viewport.scrollAndZoomIntoView([]);

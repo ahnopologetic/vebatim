@@ -8,8 +8,6 @@ export type WidgetType = 'init' | 'create' | 'event'
 
 const useWidgetInit = () => {
     const [widgetType] = useSyncedState<WidgetType>('widgetType', 'init');
-    const [eventInfo, setEventInfo] = useSyncedState<EventInfo | undefined>('eventInfo', undefined);
-    const [eventProperties, setEventProperties] = useSyncedState<EventProperty[] | undefined>('eventProperties', undefined);
 
     const widgetNodeId = useWidgetNodeId();
 
@@ -18,8 +16,6 @@ const useWidgetInit = () => {
             switch (msg.type) {
                 case MESSAGE_TYPES.CREATE_EVENT:
                     createLabel(msg.data, widgetNodeId);
-                    setEventInfo(msg.data);
-                    setEventProperties(msg.data.properties);
                     figma.notify('Event created');
                     figma.closePlugin();
                     break;
@@ -49,7 +45,7 @@ const useWidgetInit = () => {
         };
     });
 
-    return { widgetType, eventInfo, eventProperties, widgetNodeId };
+    return { widgetType, widgetNodeId };
 };
 
 
