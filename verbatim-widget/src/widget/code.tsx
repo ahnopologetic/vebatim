@@ -6,7 +6,7 @@ import { WidgetInit } from "./pages/init-widget";
 
 function MainWidget() {
   const { widgetType, widgetNodeId, mainWidgetId } = useWidgetInit();
-  useSetPropertyMenu(widgetType, mainWidgetId);
+  useSetPropertyMenu(widgetType, mainWidgetId, widgetNodeId);
 
   return (
     <Layout>
