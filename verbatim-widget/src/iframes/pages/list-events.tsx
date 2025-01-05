@@ -33,7 +33,7 @@ export const ListEvents = () => {
 
                 <div className="space-y-4">
                     {Object.keys(events).length === 0 ? (
-                        <div className="text-center py-8 text-gray-500">
+                        <div className="text-center py-8 text-muted">
                             No events created yet
                         </div>
                     ) : (
@@ -43,7 +43,7 @@ export const ListEvents = () => {
                                 className="p-4 border border-gray-200 rounded-lg hover:border-blue-500"
                             >
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="font-medium text-gray-900">{event}</h3>
+                                    <h3 className="font-medium text-default dark:text-white">{event}</h3>
                                     <button
                                         onClick={() => handleFocusNode(events[event])}
                                         className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
@@ -51,7 +51,7 @@ export const ListEvents = () => {
                                         Focus
                                     </button>
                                 </div>
-                                <p className="text-sm text-gray-600 mb-3">{events[event]}</p>
+                                <p className="text-sm text-muted mb-3">{events[event]}</p>
                             </div>
                         ))
                     )}

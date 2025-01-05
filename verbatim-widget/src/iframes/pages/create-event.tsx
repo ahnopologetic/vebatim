@@ -82,7 +82,7 @@ export const CreateEvent = () => {
                     
                     <div className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                            <label htmlFor="name" className="block text-sm font-medium text-default mb-1">
                                 Event Name
                             </label>
                             <input
@@ -96,7 +96,7 @@ export const CreateEvent = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                            <label htmlFor="description" className="block text-sm font-medium text-default mb-1">
                                 Description
                             </label>
                             <textarea
@@ -110,7 +110,7 @@ export const CreateEvent = () => {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-medium text-gray-700">
+                                <label className="block text-sm font-medium text-default">
                                     Properties
                                 </label>
                                 <button
@@ -130,7 +130,7 @@ export const CreateEvent = () => {
                                                 type="text"
                                                 value={property.name}
                                                 onChange={(e) => updateProperty(index, 'name', e.target.value)}
-                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm"
+                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-xs"
                                                 placeholder="Property name"
                                             />
                                         </div>
@@ -138,7 +138,7 @@ export const CreateEvent = () => {
                                             <select
                                                 value={property.type}
                                                 onChange={(e) => updateProperty(index, 'type', e.target.value)}
-                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm"
+                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-xs"
                                             >
                                                 <option value="string">String</option>
                                                 <option value="number">Number</option>
@@ -150,7 +150,7 @@ export const CreateEvent = () => {
                                                 type="text"
                                                 value={property.description}
                                                 onChange={(e) => updateProperty(index, 'description', e.target.value)}
-                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-sm"
+                                                className="w-full px-2 py-1 border border-gray-300 rounded-md text-xs"
                                                 placeholder="Description"
                                             />
                                         </div>
