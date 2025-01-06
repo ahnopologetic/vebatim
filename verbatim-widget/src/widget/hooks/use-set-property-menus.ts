@@ -8,16 +8,16 @@ const HOME_SVG_SRC = `
 `
 
 export const useSetPropertyMenu = (widgetType: string, mainWidgetId: string, widgetNodeId: string) => {
-    const focusOnMainWidget = () => {
-        const mainWidget = figma.getNodeById(mainWidgetId) as WidgetNode;
+    const focusOnMainWidget = async() => {
+        const mainWidget = await figma.getNodeByIdAsync(mainWidgetId) as WidgetNode;
         if (mainWidget) {
             figma.viewport.scrollAndZoomIntoView([mainWidget]);
             figma.currentPage.selection = [mainWidget];
         }
     }
     
-    const deleteWidget = () => {
-        const widgetNode = figma.getNodeById(widgetNodeId) as WidgetNode;
+    const deleteWidget = async () => {
+        const widgetNode = await figma.getNodeByIdAsync(widgetNodeId) as WidgetNode;
         if (widgetNode) {
             widgetNode.remove();
         }

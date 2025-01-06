@@ -1,13 +1,21 @@
 {
-  "name": "verbatim",
-  "id": "widget-id-FUft5cfRoH",
+  "name": "Verbatim",
+  "id": "1457937226909056718",
   "api": "1.0.0",
-  "editorType": ["figma"],
+  "editorType": [
+    "figma"
+  ],
   "permissions": [],
   "containsWidget": true,
   "main": "dist/code.js",
   "ui": {
     "main": "dist/index.html"
   },
-  "widgetApi": "1.0.0"
+  "widgetApi": "1.0.0",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://oxszvycdrqcagbozcvhr.supabase.co/storage/v1/object/public/verbatim_public/"
+    ]
+  },
+  "documentAccess": "dynamic-page"
 }

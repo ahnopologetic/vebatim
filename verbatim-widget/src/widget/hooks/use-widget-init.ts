@@ -40,7 +40,7 @@ const useWidgetInit = () => {
                     figma.notify('List Events');
                     break;
                 case MESSAGE_TYPES.FOCUS_NODE:
-                    const node = figma.getNodeById(msg.data.nodeId);
+                    const node = await figma.getNodeByIdAsync(msg.data.nodeId);
                     if (node) {
                         figma.currentPage.selection = [node as SceneNode];
                         figma.viewport.scrollAndZoomIntoView([node]);
