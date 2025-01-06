@@ -1,6 +1,5 @@
 import { AutoLayout } from '../lib';
-import { openCreateEventIframe, openListEventsIframe } from '../lib/open-iframe';
-import { Button } from '../lib/ui/components/button';
+import { openCreateEventIframe, openExportEventsIframe, openListEventsIframe } from '../lib/open-iframe';
 import { Header } from '../lib/ui/components/header';
 import { IconButton } from '../lib/ui/components/icon-button';
 import { borderRadius, ColorStyles } from '../shared/styles';
@@ -65,7 +64,7 @@ export const WidgetInit = () => {
           size="large"
           appearance="secondary"
           width={'fill-parent'}
-          onClick={() => { }}
+          onClick={openExportEventsIframe}
           text="Export Events"
           icon={exportIconSrc}
         />

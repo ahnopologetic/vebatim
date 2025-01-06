@@ -1,5 +1,5 @@
 import { waitForTask } from '../../widget/lib';
-import { EventInfo, EventProperty } from '../shared/types';
+import { EventInfo, EventProperty, UserEvent } from '../shared/types';
 
 export const openPluginUI = (input: {
     routeName: string;
@@ -16,8 +16,8 @@ export const openPluginUI = (input: {
     waitForTask(
         new Promise(() => {
             figma.showUI(`${__uiFiles__['main']}`, {
-                width: 440,
-                height: 540,
+                width: 700,
+                height: 600,
                 visible,
             });
             figma.ui.postMessage(
@@ -58,6 +58,35 @@ export const openEditEventIframe = (eventInfo: EventInfo, eventProperties: Event
     openPluginUI({
         routeName: 'edit-event',
         props: { eventInfo, eventProperties },
+        options: { visible: true },
+    });
+};
+
+export const openExportEventsIframe = () => {
+    // Find all widget nodes that are events
+    const widgetNodes: WidgetNode[] = figma.currentPage.findAll(node => {
+        return node.type === "WIDGET" && node.name.startsWith('Verbatim Event:');
+    }) as WidgetNode[];
+
+    // Collect events data from widget nodes
+    const events = widgetNodes.map(node => {
+        const eventInfo = node.widgetSyncedState['eventInfo'] as EventInfo;
+        const eventProperties = node.widgetSyncedState['eventProperties'] as EventProperty[];
+        const status = node.widgetSyncedState['status'] as string;
+        const version = node.widgetSyncedState['version'] as string;
+
+        return {
+            ...eventInfo,
+            properties: eventProperties || [],
+            status: status || 'Not Started',
+            version: version || '1.0',
+            nodeId: node.id
+        };
+    });
+
+    openPluginUI({
+        routeName: 'export-events',
+        props: { events },
         options: { visible: true },
     });
 };
