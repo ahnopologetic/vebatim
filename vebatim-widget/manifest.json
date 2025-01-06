@@ -14,7 +14,7 @@
   "widgetApi": "1.0.0",
   "networkAccess": {
     "allowedDomains": [
-      "https://oxszvycdrqcagbozcvhr.supabase.co/storage/v1/object/public/vebatim_public/"
+      "https://oxszvycdrqcagbozcvhr.supabase.co"
     ]
   },
   "documentAccess": "dynamic-page"
