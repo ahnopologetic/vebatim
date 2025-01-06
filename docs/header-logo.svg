@@ -12,8 +12,8 @@
       </style>
 
       <div class="container">
-        <img src="./assets/verbatim-64.png" alt="Verbatim Logo" />
-        <img src="./assets/verbatim-title-white-64.png" alt="Verbatim Title" />
+        <img src="../assets/verbatim-64.png" alt="Verbatim Logo" />
+        <img src="../assets/verbatim-title-white-64.png" alt="Verbatim Title" />
       </div>
     </div>
   </foreignObject>
