@@ -3,6 +3,8 @@ import { Colors } from '../../widget/shared/styles/colors';
 import { EventInfo, EventProperty } from '../../widget/shared/types';
 import { Layout } from '../components/ui/layout';
 import { useAppContext } from '../lib/contexts/app';
+import { copyToClipboard } from '../lib/copy';
+import { sanitizeString } from '../lib/string';
 
 interface ExportableEvent extends EventInfo {
     properties: EventProperty[];
@@ -42,42 +44,46 @@ export const ExportEvents = () => {
         ));
     };
 
-    const formatEventForExport = (event: ExportableEvent) => {
-        const baseInfo = {
-            'Event Name': event.name,
-            'Description': event.description,
-            'Status': event.status || 'Not Started',
-            'Version': event.version || '1.0'
+    const formatEventForExport = (event: ExportableEvent): FormattedEvent => {
+        const baseInfo: FormattedEvent = {
+            'Event Name': sanitizeString(event.name) || '',
+            'Description': sanitizeString(event.description) || '',
+            'Status': sanitizeString(event.status) || 'Not Started',
+            'Version': sanitizeString(event.version) || '1'
         };
 
-        // Add properties with their details
-        const propertyDetails = event.properties.reduce((acc, prop, index) => ({
-            ...acc,
-            [`Property ${index + 1} Name`]: prop.name,
-            [`Property ${index + 1} Type`]: prop.type,
-            [`Property ${index + 1} Description`]: prop.description
-        }), {});
+        const propertyDetails = event.properties.reduce((acc, prop, index) => {
+            const propertyNumber = index + 1;
+            return {
+                ...acc,
+                [`Property ${propertyNumber} Name`]: sanitizeString(prop.name) || '',
+                [`Property ${propertyNumber} Type`]: sanitizeString(prop.type) || '',
+                [`Property ${propertyNumber} Description`]: sanitizeString(prop.description) || ''
+            };
+        }, {});
 
-        return { ...baseInfo, ...propertyDetails };
+        return {
+            ...baseInfo,
+            ...propertyDetails
+        };
     };
 
     const handleCopyToClipboard = async () => {
         const selectedEvents = events.filter(event => event.isSelected);
         if (selectedEvents.length === 0) return;
 
-        const formattedEvents = selectedEvents.map(formatEventForExport);
+        const formattedEvents = selectedEvents.map(event => {
+            const formatted = formatEventForExport(event);
+            return Object.values(formatted).join('\t');
+        });
 
-        // Convert to CSV format
-        const headers = Object.keys(formattedEvents[0]);
-        const csvContent = [
-            headers.join('\t'),
-            ...formattedEvents.map(event =>
-                headers.map(header => event[header as keyof typeof event] || '').join('\t')
-            )
-        ].join('\n');
+        const longestEvent = selectedEvents.sort((a, b) => b.properties.length - a.properties.length)[0];
+        const headers = Object.keys(formatEventForExport(longestEvent));
+        const headerRow = headers.join('\t');
+        const csvContent = [headerRow, ...formattedEvents].join('\n');
 
         try {
-            await navigator.clipboard.writeText(csvContent);
+            copyToClipboard(csvContent);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
@@ -97,14 +103,14 @@ export const ExportEvents = () => {
                             backgroundColor: events.some(e => e.isSelected) ? Colors.blue[500] : Colors.gray[300],
                             cursor: events.some(e => e.isSelected) ? 'pointer' : 'not-allowed'
                         }}
-                        className="px-4 py-2 text-white rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="px-4 py-2 text-white rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-sm"
                     >
                         {copied ? 'Copied!' : 'Copy to Clipboard'}
                     </button>
                 </div>
 
-                <div className="bg-white rounded-lg shadow overflow-hidden max-h-[calc(100vh-200px)]">
-                    <div className="overflow-auto">
+                <div className="bg-white rounded-lg shadow overflow-y-auto max-h-[calc(100vh-200px)]">
+                    <div className="overflow-y-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50 sticky top-0 z-10">
                                 <tr>
