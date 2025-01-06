@@ -1,17 +1,17 @@
 <div align="center">
-    <img src="./assets/verbatim-64.png" alt="Verbatim Logo" />
+    <img src="./assets/vebatim-64.png" alt="Vebatim Logo" />
 </div>
 <div align="center">
-    <img src="./assets/verbatim-title-white-64.png" alt="Verbatim Title" />
+    <img src="./assets/vebatim-title-white-64.png" alt="Vebatim Title" />
 </div>
 
 ---
 
-# Verbatim
+# Vebatim
 
-> Define, track, and manage user events directly in your Figma designs - speak data, verbatim.
+> Define, track, and manage user events directly in your Figma designs - speak data, vebatim.
 
-Verbatim is a comprehensive platform that revolutionizes how teams work with event tracking data. By providing integrated tools through both Figma and web interfaces, it streamlines the process of defining, implementing, and monitoring user events. The platform ensures that project managers, designers, engineers, and stakeholders can collaborate effectively while maintaining data quality and consistency.
+Vebatim is a comprehensive platform that revolutionizes how teams work with event tracking data. By providing integrated tools through both Figma and web interfaces, it streamlines the process of defining, implementing, and monitoring user events. The platform ensures that project managers, designers, engineers, and stakeholders can collaborate effectively while maintaining data quality and consistency.
 
 ## Platform Components
 
@@ -81,8 +81,8 @@ Verbatim is a comprehensive platform that revolutionizes how teams work with eve
 #### Figma Widget
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/verbatim.git
-cd verbatim/verbatim-widget
+git clone https://github.com/yourusername/vebatim.git
+cd vebatim/vebatim-widget
 ```
 
 2. Install dependencies:
@@ -103,7 +103,7 @@ pnpm dev
 #### Web Application
 1. Navigate to web app directory:
 ```bash
-cd verbatim/webapp
+cd vebatim/webapp
 ```
 
 2. Install dependencies:
@@ -126,8 +126,8 @@ pnpm dev
 ### Project Structure
 
 ```
-verbatim/
-├── verbatim-widget/     # Figma widget source code
+vebatim/
+├── vebatim-widget/     # Figma widget source code
 ├── webapp/             # Web application
 ├── data-contract/      # Data contract system
 ├── integration-hub/    # Integration services
@@ -190,7 +190,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-Made with ❤️ by the Verbatim team
+Made with ❤️ by the Vebatim team
 </div>
 
 

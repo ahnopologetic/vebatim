@@ -1,6 +1,6 @@
 # Development Guide
 
-This guide provides detailed information for developers working on the Verbatim platform.
+This guide provides detailed information for developers working on the Vebatim platform.
 
 ## Development Environment Setup
 
@@ -36,8 +36,8 @@ npm install -g pnpm@8
 
 2. Clone and setup the repository:
 ```bash
-git clone https://github.com/yourusername/verbatim.git
-cd verbatim
+git clone https://github.com/yourusername/vebatim.git
+cd vebatim
 pnpm install
 ```
 
@@ -46,8 +46,8 @@ pnpm install
 ### Monorepo Structure
 
 ```
-verbatim/
-├── verbatim-widget/     # Figma widget
+vebatim/
+├── vebatim-widget/     # Figma widget
 │   ├── src/
 │   │   ├── widget/     # Widget core
 │   │   └── iframes/    # Widget UI components

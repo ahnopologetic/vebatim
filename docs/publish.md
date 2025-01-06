@@ -1,7 +1,7 @@
-# Verbatim Publish Documentation
+# Vebatim Publish Documentation
 
 ## Tagline
-Define, track, and manage user events directly in your Figma designs - speak data, verbatim.
+Define, track, and manage user events directly in your Figma designs - speak data, vebatim.
 
 ## Categories
 - Analytics & Data
@@ -11,7 +11,7 @@ Define, track, and manage user events directly in your Figma designs - speak dat
 - Productivity
 
 ## Description
-Verbatim bridges the gap between design and data analytics by providing a seamless way to define and track user events directly in your Figma designs. It helps teams maintain a single source of truth for event tracking definitions, ensuring perfect alignment between designers, developers, and data analysts.
+Vebatim bridges the gap between design and data analytics by providing a seamless way to define and track user events directly in your Figma designs. It helps teams maintain a single source of truth for event tracking definitions, ensuring perfect alignment between designers, developers, and data analysts.
 
 Key Features:
 - 🎯 Visual Event Definition: Add event tracking labels directly on your design elements
@@ -28,7 +28,7 @@ Perfect for:
 - Cross-functional teams working on feature implementation
 - Companies standardizing their event tracking practices
 
-Verbatim ensures that everyone speaks the same language when it comes to data tracking, reducing miscommunication and improving implementation accuracy.
+Vebatim ensures that everyone speaks the same language when it comes to data tracking, reducing miscommunication and improving implementation accuracy.
 
 ## Tags
 - analytics

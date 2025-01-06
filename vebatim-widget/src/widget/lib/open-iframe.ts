@@ -42,7 +42,7 @@ export const openListEventsIframe = () => {
     }) as WidgetNode[];
 
     const eventMap = widgetNodes.reduce((acc, node) => {
-        const name = node.name.split('Verbatim Event: ')[1];
+        const name = node.name.split('Vebatim Event: ')[1];
         if (!name) return acc;
         acc[name] = node.id;
         return acc;
@@ -65,7 +65,7 @@ export const openEditEventIframe = (eventInfo: EventInfo, eventProperties: Event
 export const openExportEventsIframe = () => {
     // Find all widget nodes that are events
     const widgetNodes: WidgetNode[] = figma.currentPage.findAll(node => {
-        return node.type === "WIDGET" && node.name.startsWith('Verbatim Event:');
+        return node.type === "WIDGET" && node.name.startsWith('Vebatim Event:');
     }) as WidgetNode[];
 
     // Collect events data from widget nodes

@@ -1,5 +1,5 @@
 {
-  "name": "Verbatim",
+  "name": "Vebatim",
   "id": "1457937226909056718",
   "api": "1.0.0",
   "editorType": [
@@ -14,7 +14,7 @@
   "widgetApi": "1.0.0",
   "networkAccess": {
     "allowedDomains": [
-      "https://oxszvycdrqcagbozcvhr.supabase.co/storage/v1/object/public/verbatim_public/"
+      "https://oxszvycdrqcagbozcvhr.supabase.co/storage/v1/object/public/vebatim_public/"
     ]
   },
   "documentAccess": "dynamic-page"

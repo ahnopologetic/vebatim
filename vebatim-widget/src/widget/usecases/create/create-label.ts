@@ -19,7 +19,7 @@ export const createLabel = async (userEvent: UserEvent, widgetNodeId: string) =>
         eventProperties: userEvent.properties,
     });
 
-    newWidgetNode.name = `Verbatim Event: ${userEvent.name}`;
+    newWidgetNode.name = `Vebatim Event: ${userEvent.name}`;
     newWidgetNode.x = widgetNode.x + widgetNode.width + 40;
 
     return newWidgetNode

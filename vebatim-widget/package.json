@@ -1,7 +1,7 @@
 {
-  "name": "verbatim",
+  "name": "vebatim",
   "version": "1.0.0",
-  "description": "verbatim",
+  "description": "vebatim",
   "scripts": {
     "test": "npm run tsc && npm run build",
     "format": "prettier --write .",

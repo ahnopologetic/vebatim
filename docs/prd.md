@@ -1,10 +1,10 @@
-# PRD: Verbatim
+# PRD: Vebatim
 
 ## 1. Introduction
-Data is the new oil that drives all industries. Everyone knows that data is important, but problem is that each one in the org speaks a different language. Verbatim is a platform that offers a suite of tools to help you speak the same language -- verbatim, acknowledge the diversity of needs and perspectives, and therefore make data-driven decisions. Verbatim revolutionizes the way you work with data.
+Data is the new oil that drives all industries. Everyone knows that data is important, but problem is that each one in the org speaks a different language. Vebatim is a platform that offers a suite of tools to help you speak the same language -- vebatim, acknowledge the diversity of needs and perspectives, and therefore make data-driven decisions. Vebatim revolutionizes the way you work with data.
 
 ## 2. Product Overview
-In user event definition process, Verbatim offers following features for different roles:
+In user event definition process, Vebatim offers following features for different roles:
 - Project Managers: Web app with design user event tracking data, event tracking status dashboard, and analytics
 - Designers: Figma widget to visually define where and when to track events, and discuss with stakeholders
 - Software Engineers: Data contract to define the data schema and validate the data
@@ -78,4 +78,4 @@ Scalability:
 - Cloud-based infrastructure for easy scaling
 
 ## 6. Conclusion
-Verbatim addresses the critical need for alignment in data tracking across different roles in an organization. By providing integrated tools through both Figma and web interfaces, it streamlines the process of defining, implementing, and monitoring user events. The platform ensures that project managers, designers, engineers, and stakeholders can collaborate effectively while maintaining data quality and consistency. This solution will significantly reduce miscommunication, improve implementation accuracy, and enable better data-driven decision making across organizations.
+Vebatim addresses the critical need for alignment in data tracking across different roles in an organization. By providing integrated tools through both Figma and web interfaces, it streamlines the process of defining, implementing, and monitoring user events. The platform ensures that project managers, designers, engineers, and stakeholders can collaborate effectively while maintaining data quality and consistency. This solution will significantly reduce miscommunication, improve implementation accuracy, and enable better data-driven decision making across organizations.
