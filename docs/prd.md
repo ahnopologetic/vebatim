@@ -54,6 +54,7 @@ Figma widget:
 - User can add comments and discussions directly on design elements
 - User can navigate back and forth between list of events and labels on design files
 - User can export event tracking specifications to external tools (e.g. csv file, json file, google sheet and etc.)
+    - Copy to clipboard button: When user clicks the button, the event tracking specifications will be copied to the clipboard
 
 ## 5. Non-Functional Requirements
 Performance:

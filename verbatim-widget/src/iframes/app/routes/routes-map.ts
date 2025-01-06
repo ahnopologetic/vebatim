@@ -3,6 +3,7 @@ export enum ROUTES {
     CREATE = 'create-event',
     LIST = 'list-events',
     EDIT = 'edit-event',
+    EXPORT = 'export-events',
 }
 
 export const ROUTES_MAP: { [routeName: string]: string } = {
@@ -10,4 +11,5 @@ export const ROUTES_MAP: { [routeName: string]: string } = {
     [ROUTES.IMPORT]: '/import',
     [ROUTES.LIST]: '/list-events',
     [ROUTES.EDIT]: '/edit-event',
+    [ROUTES.EXPORT]: '/export-events',
 };
