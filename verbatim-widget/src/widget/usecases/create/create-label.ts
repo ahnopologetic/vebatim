@@ -1,8 +1,8 @@
 import { UserEvent } from "../../shared/types";
 
-export const createLabel = (userEvent: UserEvent, widgetNodeId: string) => {
+export const createLabel = async (userEvent: UserEvent, widgetNodeId: string) => {
     // clone a widget with type
-    const widgetNode = figma.getNodeById(widgetNodeId) as WidgetNode;
+    const widgetNode = await figma.getNodeByIdAsync(widgetNodeId) as WidgetNode;
 
     if (!widgetNode) {
         figma.notify('Widget not found');

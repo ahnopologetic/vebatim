@@ -1,7 +1,7 @@
 import { UserEvent } from "../../shared/types";
 
-export const updateLabel = (userEvent: UserEvent, widgetNodeId: string) => {
-    const widgetNode = figma.getNodeById(widgetNodeId) as WidgetNode;
+export const updateLabel = async (userEvent: UserEvent, widgetNodeId: string) => {
+    const widgetNode = await figma.getNodeByIdAsync(widgetNodeId) as WidgetNode;
     if (!widgetNode) {
         figma.notify('Widget not found');
         return;
