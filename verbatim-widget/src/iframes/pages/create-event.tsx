@@ -82,7 +82,7 @@ export const CreateEvent = () => {
                     
                     <div className="space-y-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-default mb-1">
+                            <label htmlFor="name" className="block text-sm font-medium text-default dark:text-white mb-1">
                                 Event Name
                             </label>
                             <input
@@ -96,7 +96,7 @@ export const CreateEvent = () => {
                         </div>
 
                         <div>
-                            <label htmlFor="description" className="block text-sm font-medium text-default mb-1">
+                            <label htmlFor="description" className="block text-sm font-medium text-default dark:text-white mb-1">
                                 Description
                             </label>
                             <textarea
@@ -110,7 +110,7 @@ export const CreateEvent = () => {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-medium text-default">
+                                <label className="block text-sm font-medium text-default dark:text-white">
                                     Properties
                                 </label>
                                 <button
