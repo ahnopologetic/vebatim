@@ -1,7 +1,10 @@
-
-<div width="100%">
-    <img src="./docs/header-logo.svg" alt="Verbatim Logo" />
+<div align="center">
+    <img src="./assets/verbatim-64.png" alt="Verbatim Logo" />
 </div>
+<div align="center">
+    <img src="./assets/verbatim-title-white-64.png" alt="Verbatim Title" />
+</div>
+
 ---
 
 # Verbatim
