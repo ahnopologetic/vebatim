@@ -1,6 +1,6 @@
-<div align="center">
-    <img src="./docs/verbatim-64.png" alt="Verbatim Logo" />
-    <img src="./docs/verbatim-title-black.png" alt="Verbatim Title" />
+<div align="center" style="display: flex; align-items: center; justify-content: center;">
+    <img src="./assets/verbatim-64.png" alt="Verbatim Logo" />
+    <img src="./assets/verbatim-title-black.png" alt="Verbatim Title" />
 </div>
 
 ---
