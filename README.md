@@ -1,6 +1,6 @@
-<div align="center" style="display: flex; align-items: center; justify-content: center;">
+<div align="center" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
     <img src="./assets/verbatim-64.png" alt="Verbatim Logo" />
-    <img src="./assets/verbatim-title-black.png" alt="Verbatim Title" />
+    <img src="./assets/verbatim-title-white-64.png" alt="Verbatim Title" />
 </div>
 
 ---
