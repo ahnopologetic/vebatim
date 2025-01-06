@@ -118,7 +118,7 @@ export const ExportEvents = () => {
                                         <div className="flex items-center">
                                             <input
                                                 type="checkbox"
-                                                className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 bg-muted dark:bg-gray-700"
+                                                className="h-4 w-4 text-blue-600 rounded border border-gray-300 focus:ring-blue-500 bg-white"
                                                 onChange={(e) => handleSelectAll(e.target.checked)}
                                                 checked={events.length > 0 && events.every(e => e.isSelected)}
                                             />
@@ -144,7 +144,7 @@ export const ExportEvents = () => {
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <input
                                                 type="checkbox"
-                                                className="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 bg-muted dark:bg-gray-700"
+                                                className="h-4 w-4 rounded border border-gray-300 bg-white text-blue-600 accent-blue-600"
                                                 checked={event.isSelected}
                                                 onChange={(e) => handleSelectEvent(index, e.target.checked)}
                                             />
